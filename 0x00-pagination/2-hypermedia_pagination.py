@@ -52,11 +52,11 @@ class Server:
 
         try:
             dataset[idx_range[1] + 1]
-            next_page = current_page + page_size - 1
+            next_page = current_page + 1
         except IndexError:
             next_page = None
 
-        prev_page = current_page - page_size + 2
+        prev_page = current_page - 1
         if prev_page < 0:
             prev_page = None
 
