@@ -2,7 +2,7 @@
 """Simple pagination."""
 import csv
 import math
-from typing import List, Dict   
+from typing import List, Dict
 
 
 def index_range(page: int, page_size: int) -> tuple:
@@ -49,7 +49,7 @@ class Server:
         dataset = self.dataset()
         idx_range = index_range(page, page_size)
         current_page = math.ceil(idx_range[1] / page_size)
-        
+
         try:
             dataset[idx_range[1] + 1]
             next_page = current_page + page_size - 1
@@ -59,14 +59,14 @@ class Server:
         prev_page = current_page - page_size + 2
         if prev_page < 0:
             prev_page = None
-        
+
         pagiation = {
-            'page_size': len(self.get_page(page, page_size)),
-            'page': current_page,
-            'data': self.get_page(page, page_size),
-            'next_page': next_page,
-            'prev_page': prev_page,
-            'total_pages': math.ceil(len(dataset) / page_size)
+            "page_size": len(self.get_page(page, page_size)),
+            "page": current_page,
+            "data": self.get_page(page, page_size),
+            "next_page": next_page,
+            "prev_page": prev_page,
+            "total_pages": math.ceil(len(dataset) / page_size),
         }
 
         return pagiation
