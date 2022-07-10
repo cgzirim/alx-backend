@@ -57,7 +57,7 @@ class Server:
             next_page = None
 
         prev_page = current_page - 1
-        if prev_page < 0:
+        if prev_page < 1:
             prev_page = None
 
         pagiation = {
