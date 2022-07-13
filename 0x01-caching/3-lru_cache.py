@@ -23,7 +23,6 @@ class LRUCache(BaseCaching):
 
         if len(self.use_count) > 0:
             lru_key = self.get_least_used()
-            mru_key = self.get_most_used()
 
         if key not in self.use_count:
             self.use_count.update({key: self.count})
@@ -35,7 +34,6 @@ class LRUCache(BaseCaching):
 
         if len(self.cache_data) > self.MAX_ITEMS:
             self.use_count.pop(lru_key)
-            self.use_count[key] = self.use_count[mru_key] + 1
             self.cache_data.pop(lru_key)
             print("Discard: {}".format(lru_key))
 
@@ -55,13 +53,3 @@ class LRUCache(BaseCaching):
             return duplicates[-1][0]
 
         return items[0][0]
-
-    def get_most_used(self):
-        """Returns the most used key."""
-        items = [(k, v) for k, v in self.use_count.items()]
-        items.sort(key=lambda item: item[1])
-        duplicates = [item for item in items if item[1] == items[0][1]]
-        if len(duplicates) > 1:
-            return duplicates[-1][0]
-
-        return items[-1][0]
