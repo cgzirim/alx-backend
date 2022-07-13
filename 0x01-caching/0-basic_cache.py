@@ -19,3 +19,4 @@ class BasicCache(BaseCaching):
         If key is None or key doesn't exist in self.cache_data, returns None."""
 
         return self.cache_data.get(key)
+ 
