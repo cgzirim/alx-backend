@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Defines a class called BasicCache that inherits from BaseCaching."""
-
-BaseCaching = __import__("base_caching").BaseCaching
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
