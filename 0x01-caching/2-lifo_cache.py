@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Defines a class LIFOCache that inherits from BaseCaching."""
 
-BaseCaching = __import__('base_caching').BaseCaching
+BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LIFOCache(BaseCaching):
@@ -25,7 +25,6 @@ class LIFOCache(BaseCaching):
         if len(self.cache_data) > self.MAX_ITEMS:
             del self.cache_data[keys[-1]]
             print("DISCARD: {}".format(keys[-1]))
-
 
     def get(self, key):
         """Returns the value in self.cache_data linked to key."""
