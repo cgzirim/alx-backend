@@ -4,11 +4,12 @@ from base_caching import BaseCaching
 
 
 class LFUCache(BaseCaching):
-    """ Class Implementing LFU"""
+    """Class Implementing LFU"""
 
     def __int__(self):
-        """ class constructor"""
+        """class constructor"""
         super().__init__()
+
     use_count = {}
 
     def put(self, key, item):
@@ -18,12 +19,13 @@ class LFUCache(BaseCaching):
         """
         if key and item:
             if len(self.cache_data) >= self.MAX_ITEMS:
-                itemKeyToDiscard = \
-                    sorted(self.use_count.items(), key=lambda x: x[1])[0][0]
+                itemKeyToDiscard = sorted(self.use_count.items(), key=lambda x: x[1])[
+                    0
+                ][0]
 
                 self.cache_data.pop(itemKeyToDiscard)
                 self.use_count.pop(itemKeyToDiscard)
-                print('DISCARD: {}'.format(itemKeyToDiscard))
+                print("DISCARD: {}".format(itemKeyToDiscard))
             if not self.use_count.get(key):
                 self.use_count[key] = 0
             self.cache_data[key] = item
