@@ -73,12 +73,12 @@ def get_timezone():
         time_zone = app.config["BABEL_DEFAULT_TIMEZONE"]
 
     return time_zone
-    
+
 
 @app.route("/")
 def index():
     """View function for route /."""
-    fmt = '%B %d, %Y, %H:%M:%S %p'
+    fmt = "%B %d, %Y, %H:%M:%S %p"
     # time = timezone(str(get_timezone())).strftime(fmt)
     time = datetime.now(timezone(str(get_timezone())))
     return render_template("index.html", time=time.strftime(fmt))
