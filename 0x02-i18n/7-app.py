@@ -5,6 +5,7 @@ from flask import request, g
 from flask_babel import Babel
 from flask import render_template
 from typing import Union
+import pytz
 from pytz import UnknownTimeZoneError, timezone
 
 app = Flask(__name__)
@@ -49,13 +50,12 @@ def get_timezone():
     """Infer appropraite time zone."""
     try:
         if request.args.get("timezone"):
-            time_zone = request.args.get("timezone")
-            time_zone = timezone(time_zone)
+            time_zone = timezone(request.args.get("timezone"))
         else:
             if g.user and g.user.get("timezone"):
                 time_zone = timezone(g.user.get("timezone"))
     except UnknownTimeZoneError:
-        timezone = app.config["BABEL_DEFAULT_TIMEZONE"]
+        time_zone = app.config["BABEL_DEFAULT_TIMEZONE"]
 
     return time_zone
 
@@ -78,7 +78,7 @@ def get_locale() -> str:
 @app.route("/")
 def index():
     """View function for route /."""
-    return render_template("6-index.html")
+    return render_template("7-index.html")
 
 
 if __name__ == "__main__":
