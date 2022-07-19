@@ -16,10 +16,10 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
-app.config.form_object(Config)
+app.config.from_object(Config)
 
 
-@app.route("/", methods=['GET'], strict_slashes=False)
+@app.route("/")
 def index():
     """View function for route /."""
     return render_template("1-index.html")
