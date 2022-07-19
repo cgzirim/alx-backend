@@ -4,7 +4,6 @@ from flask import Flask
 from flask import request, g
 from flask_babel import Babel
 from flask import render_template
-from flask_babel import lazy_gettext
 from typing import Union
 
 app = Flask(__name__)
@@ -33,8 +32,8 @@ def get_user() -> Union[dict, None]:
     "Gets a user."
     login_as = request.args.get("login_as", None)
     if login_as is None:
-        user = None
-    user = users.get(int(login_as))
+        return None
+    return users.get(int(login_as))
 
 
 @app.before_request
