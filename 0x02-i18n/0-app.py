@@ -9,6 +9,8 @@ app = Flask(__name__)
 @app.route("/", strick_slashes=False)
 def index():
     """View function for route /."""
-    title = "Welcome to Holberton"
-    text = "Hello world"
-    return render_template("0-index.html", title=title, text=text)
+    return render_template("0-index.html")
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
