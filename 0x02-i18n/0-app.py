@@ -6,7 +6,7 @@ from flask import render_template
 app = Flask(__name__)
 
 
-@app.route("/", strick_slashes=False)
+@app.route("/")
 def index():
     """View function for route /."""
     return render_template("0-index.html")
