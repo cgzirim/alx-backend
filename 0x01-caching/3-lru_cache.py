@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Defines a class LRUCache that inherits from BaseCaching."""
+from collections import OrderedDict
 
 BaseCaching = __import__("base_caching").BaseCaching
 
