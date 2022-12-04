@@ -1,0 +1,12 @@
+[submodule "alx-backend-storage"]
+	path = alx-backend-storage
+	url = git@github.com:iChigozirim/alx-backend-storage.git
+[submodule "alx-backend-python"]
+	path = alx-backend-python
+	url = git@github.com:iChigozirim/alx-backend-python.git
+[submodule "alx-backend-javascript"]
+        path = alx-backend-javascript
+	url = git@github.com:iChigozirim/alx-backend-javascript.git
+[submodule "alx-backend-user-data"]
+        path = alx-backend-user-data
+        url = git@github.com:iChigozirim/alx-backend-user-data
